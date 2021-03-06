@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col-sl-12 col-md-6 col-lg-6">
+    <div class="bordas">
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-3 mt-2">
+          <h4> Create User</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-3  input-label">
+          <label for="name" >Name</label>
+          <input name="name" type="text" [(ngModel)]="createUser.name" />
+        </div>
+        <div class="col-sl-12 col-md-12 col-lg-3  input-label">
+          <label for="cpf">CPF </label>
+          <input name="cpf" type="text" [(ngModel)]="createUser.cpf" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-12 text-right pb-2">
+          <button type="button" (click)="saveUser()" >Save</button>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!--div class="bordas">
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-3 mt-2">
+          <h4> Find User</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="name" >Name</label>
+          <input name="name" type="text" [(ngModel)]="findUser.name" />
+        </div>
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="cpf">CPF </label>
+          <input name="cpf" type="text" [(ngModel)]="findUser.cpf" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-12 text-right pb-2">
+          <button type="button" >Search</button>
+        </div>
+      </div>
+    </div>
+    <hr /-->
+    <div class="bordas">
+      <div class="row">
+        <div class="col-sl-12 col-md-6 col-lg-3 mt-2">
+          <h4> Find User by Id</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="id" >Id</label>
+          <input name="id" type="text" [(ngModel)]="findUserId.id" />
+        </div>
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="name">Name </label>
+          <input name="name" type="text" [(ngModel)]="findUserId.name" readonly  />
+        </div>
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="cpf">CPF </label>
+          <input name="cpf" type="text" [(ngModel)]="findUserId.cpf" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-12 text-right pb-2">
+          <button type="button" (click)="findUserById()" >Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sl-12 col-md-6 col-lg-6 ">
+    <div class="bordas">
+      <div class="row">
+        <div class="col-sl-12 col-md-6 col-lg-3 mt-2">
+          <h4> List Users</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-10">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of userList">
+                <th scope="row">{{item.name}}</th>
+                <td>{{item.cpf}}</td>
+                <td>
+                  <button  (click)="editar(item.id)"> Editar </button>
+                  <button  (click)="deletar(item.id)"> Deletar </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="col-sl-12 col-md-2">
+          <div class="totalUsers bordas text-center">
+            <div class="headerTotal">Total Users</div>
+            <div class="bodyTotal">{{totalUsers}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bordas" *ngIf="viewEditForm">
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-12 mt-2">
+          <h4> Edit user - {{editUser.name}}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="id" >Id</label>
+          <input name="id" type="text" [(ngModel)]="editUser.id" />
+        </div>
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="name">Name </label>
+          <input name="name" type="text" [(ngModel)]="editUser.name"  />
+        </div>
+        <div class="col-sl-12 col-md-12 col-lg-3 input-label">
+          <label for="cpf">CPF </label>
+          <input name="cpf" type="text" [(ngModel)]="editUser.cpf" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sl-12 col-md-12 col-lg-12 text-right pb-2">
+          <button type="button" (click)="editUserdata()"  >Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-alert-message [alertMessage]="alertMessage"></app-alert-message>
