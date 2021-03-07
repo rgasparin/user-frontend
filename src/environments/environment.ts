@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api: {
-    contextPath: 'http://localhost:8080'
+    contextPath: 'http://ec2-18-218-118-221.us-east-2.compute.amazonaws.com:8080'
   }
 };
 
